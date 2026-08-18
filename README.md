@@ -22,6 +22,9 @@ Estamos publicando Cloudflare OS como código abierto 🌐 para que otros puedan
 Para ejecutar Cloudflare OS localmente, [instala pnpm](https://pnpm.io/) y luego ejecuta:
 
 ```
+npm i pnpm
+pnpm self-update
+pnpm install  
 pnpm run-local
 ```
 
@@ -34,6 +37,31 @@ Como alternativa, puedes [desplegar en tu cuenta de Cloudflare](https://os.cloud
 _(Más opciones al final de este archivo README)._
 
 ### 🧪 Qué probar
+Lifecycle scripts included in cloudflare-os@1.0.0:
+  test
+    node --test scripts/*.test.js && vp run --filter '!cloudflare-os' --cache te
+st
+available via `npm run`:
+  build
+    vp run -r --cache build
+  run-local
+    node scripts/run-local.mjs
+  dev-client
+    cd packages/workshop-frontend && pnpm run dev
+  dev-server
+    node run-dev-server.js
+  clean
+    vp run -r clean
+  lint:check
+    vp lint
+  lint:fix
+    vp lint --fix
+  types:check
+    pnpm run build
+  lint
+    pnpm run lint:check && pnpm run types:check
+  types:generate
+    node scripts/generate-worker-types.mjs
 
 Prueba con indicaciones como:
 
